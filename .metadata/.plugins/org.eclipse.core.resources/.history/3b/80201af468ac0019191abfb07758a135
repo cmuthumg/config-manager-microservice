@@ -1,4 +1,0 @@
-spring.application.name=online-service
-server.port=9080
-eureka.client.service-url.default-zone=http://localhost:9070/eureka
-#eureka.client.service-url.default-zone

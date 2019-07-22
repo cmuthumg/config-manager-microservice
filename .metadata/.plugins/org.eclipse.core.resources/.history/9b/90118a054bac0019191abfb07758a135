@@ -1,5 +1,0 @@
-package com.config.db.serivce.bean;
-
-public class ResponseBean {
-
-}

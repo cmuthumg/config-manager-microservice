@@ -1,5 +1,9 @@
 package com.config.online.service.controller;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.config.online.service.bean.RequestBean;
@@ -17,6 +20,8 @@ import com.config.online.service.proxy.DBServiceProxy;
 
 @RestController
 public class OnlineServiceController {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	DBServiceProxy dbServiceProxy;
@@ -28,7 +33,7 @@ public class OnlineServiceController {
 	
 	
 	@GetMapping("/all/{servicename}")
-	public ResponseEntity<ResponseBean> getAllConfig(
+	public ResponseEntity<List<ResponseBean>> getAllConfig(
 			@PathVariable("servicename") String servicename) {
 		return dbServiceProxy.getAllConfig(servicename);
 	}
@@ -44,14 +49,14 @@ public class OnlineServiceController {
 	}
 
 	@PostMapping("/save/{servicename}")
-	public ResponseEntity<ResponseBean> saveConfigData(
+	public ResponseEntity<String> saveConfigData(
 			@PathVariable("servicename") String serviceName,
 			@RequestBody RequestBean requestBean) {
 		return dbServiceProxy.saveConfigData(serviceName,requestBean);
 	}
 
 	@PutMapping("/update/{servicename}")
-	public ResponseEntity<ResponseBean> updateConfigData(
+	public ResponseEntity<String> updateConfigData(
 			@PathVariable("servicename") String serviceName,
 			@RequestBody RequestBean requestBean) {
 
@@ -59,7 +64,7 @@ public class OnlineServiceController {
 	}
 	
 	@DeleteMapping("/delete/{servicename}/{resourcename}/{status}")
-	public ResponseEntity<ResponseBean> deleteConfigData(
+	public ResponseEntity<String> deleteConfigData(
 			@PathVariable("servicename") String servicename,
 			@PathVariable("resourcename") String resourcename, 
 			@PathVariable("status") String status) {

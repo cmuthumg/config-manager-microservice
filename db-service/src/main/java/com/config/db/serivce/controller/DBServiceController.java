@@ -1,5 +1,7 @@
 package com.config.db.serivce.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.config.db.serivce.bean.RequestBean;
@@ -17,7 +18,6 @@ import com.config.db.serivce.bean.ResponseBean;
 import com.config.db.serivce.registry.ServiceRegistry;
 
 @RestController
-@RequestMapping("/dbservice")
 public class DBServiceController {
 
 	@Autowired
@@ -30,10 +30,10 @@ public class DBServiceController {
 
 	@GetMapping("/all/{servicename}")
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ResponseEntity<ResponseBean> getAllConfig(
+	public ResponseEntity<List<ResponseBean>> getAllConfig(
 			@PathVariable("servicename") String servicename) {
 
-		ResponseEntity<ResponseBean> responseEntity = new ResponseEntity(
+		ResponseEntity<List<ResponseBean>> responseEntity = new ResponseEntity(
 				serviceRegistry.getService(servicename).getAllService(), HttpStatus.OK);
 		return responseEntity;
 	}

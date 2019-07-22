@@ -1,5 +1,0 @@
-package com.config.db.serivce.registry;
-
-public interface ServiceRegistry {
-	public <T> AdapterService<T, C> getService(String serviceName);
-}

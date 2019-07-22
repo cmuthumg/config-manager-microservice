@@ -1,5 +1,0 @@
-package com.config.db.serivce.repository;
-
-public class OnlineRepository {
-
-}

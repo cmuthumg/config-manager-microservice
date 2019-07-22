@@ -1,8 +1,0 @@
-package com.config.online.service.proxy;
-
-import org.springframework.cloud.netflix.feign.FeignClient;
-
-@FeignClient("")
-public interface DBServiceProxy {
-
-}
