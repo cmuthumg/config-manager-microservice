@@ -2,8 +2,6 @@ package com.config.online.service.controller;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +19,6 @@ import com.config.online.service.proxy.DBServiceProxy;
 @RestController
 public class OnlineServiceController {
 	
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	DBServiceProxy dbServiceProxy;
@@ -30,7 +27,6 @@ public class OnlineServiceController {
 	public String hello() {
 		return "Hello Online Service";
 	}
-	
 	
 	@GetMapping("/all/{servicename}")
 	public ResponseEntity<List<ResponseBean>> getAllConfig(

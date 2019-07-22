@@ -2,7 +2,9 @@ package com.config.db.serivce.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +24,11 @@ public class DBServiceController {
 
 	@Autowired
 	private ServiceRegistry<RequestBean> serviceRegistry;
+	
+	Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());
+	
+	@Autowired
+	private Environment environment;
 
 	@GetMapping("/hello")
 	public String hello() {
@@ -33,6 +40,7 @@ public class DBServiceController {
 	public ResponseEntity<List<ResponseBean>> getAllConfig(
 			@PathVariable("servicename") String servicename) {
 
+		log.info("Port >>>"+environment.getProperty("local.server.port"));
 		ResponseEntity<List<ResponseBean>> responseEntity = new ResponseEntity(
 				serviceRegistry.getService(servicename).getAllService(), HttpStatus.OK);
 		return responseEntity;
@@ -44,7 +52,7 @@ public class DBServiceController {
 			@PathVariable("servicename") String servicename,
 			@PathVariable("resourcename") String resourcename, 
 			@PathVariable("status") String status) {
-
+		log.info("Port >>>"+environment.getProperty("local.server.port"));
 		ResponseEntity<ResponseBean> responseEntity = new ResponseEntity(
 				serviceRegistry.getService(servicename).getConfigData(resourcename, status), HttpStatus.OK);
 		return responseEntity;
@@ -57,7 +65,7 @@ public class DBServiceController {
 			@RequestBody RequestBean requestBean) {
 
 		serviceRegistry.getService(serviceName).saveconfigData(requestBean);
-
+		log.info("Port >>>"+environment.getProperty("local.server.port"));
 		ResponseEntity responseEntity = new ResponseEntity("Saved Successfull !", HttpStatus.OK);
 		return responseEntity;
 	}
@@ -69,7 +77,7 @@ public class DBServiceController {
 			@RequestBody RequestBean requestBean) {
 
 		serviceRegistry.getService(serviceName).updateConfigData(requestBean);
-
+		log.info("Port >>>"+environment.getProperty("local.server.port"));
 		ResponseEntity responseEntity = new ResponseEntity("Updated Successfull !", HttpStatus.OK);
 		return responseEntity;
 	}
@@ -82,7 +90,7 @@ public class DBServiceController {
 			@PathVariable("status") String status) {
 
 		serviceRegistry.getService(servicename).deleteConfigData(resourcename, status);
-
+		log.info("Port >>>"+environment.getProperty("local.server.port"));
 		ResponseEntity responseEntity = new ResponseEntity("Deleted Successfull !", HttpStatus.OK);
 		return responseEntity;
 	}
