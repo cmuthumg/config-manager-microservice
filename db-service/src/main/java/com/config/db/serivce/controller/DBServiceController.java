@@ -2,6 +2,8 @@ package com.config.db.serivce.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -62,9 +64,10 @@ public class DBServiceController {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ResponseEntity saveConfigData(
 			@PathVariable("servicename") String serviceName,
-			@RequestBody RequestBean requestBean) {
+			@Valid @RequestBody RequestBean requestBean) {
 
 		serviceRegistry.getService(serviceName).saveconfigData(requestBean);
+		
 		log.info("Port >>>"+environment.getProperty("local.server.port"));
 		ResponseEntity responseEntity = new ResponseEntity("Saved Successfull !", HttpStatus.OK);
 		return responseEntity;

@@ -1,7 +1,11 @@
 package com.config.db.serivce.bean;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class RequestBean {
 
+	@NotNull
 	private String serviceContextName;
 
 	public RequestBean() {
@@ -15,8 +19,11 @@ public class RequestBean {
 		this.content = content;
 	}
 
+	@NotNull
+	@Pattern(regexp = "active|not-active", flags = Pattern.Flag.CASE_INSENSITIVE)
 	private String status;
 
+	@NotNull
 	private String content;
 
 	public String getServiceContextName() {

@@ -3,6 +3,7 @@ package com.config.db.serivce.bean;
 public class ResponseBean {
 
 	private String serviceContextName;
+	
 
 	public ResponseBean() {
 		super();
@@ -42,5 +43,6 @@ public class ResponseBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 
 }
