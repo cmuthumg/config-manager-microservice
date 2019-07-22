@@ -1,0 +1,17 @@
+package com.config.online.service.proxy;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.config.online.service.bean.ResponseBean;
+
+
+@FeignClient("db-service")
+@RibbonClient("db-service")
+public interface DBServiceProxy {
+
+	ResponseEntity<ResponseBean> getAllConfig(@PathVariable("servicename") String servicename);
+
+}

@@ -1,0 +1,5 @@
+package com.config.db.serivce.config;
+
+public class ServiceConfig {
+
+}

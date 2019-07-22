@@ -1,0 +1,5 @@
+package com.config.db.serivce.dbservices;
+
+public class DBService {
+
+}

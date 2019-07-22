@@ -1,0 +1,6 @@
+package com.config.db.serivce.registry;
+
+public interface AdapterService<T> {
+	//public void process(T request);
+
+}

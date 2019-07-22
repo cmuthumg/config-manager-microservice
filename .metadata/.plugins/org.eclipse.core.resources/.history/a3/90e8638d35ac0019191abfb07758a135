@@ -1,0 +1,29 @@
+package com.config.db.serivce.model;
+
+public class Offline {
+	private String serviceContextName;
+
+	private String status;
+
+	public Offline(String serviceContextName, String status) {
+		super();
+		this.serviceContextName = serviceContextName;
+		this.status = status;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getServiceContextName() {
+		return serviceContextName;
+	}
+
+	public void setServiceContextName(String serviceContextName) {
+		this.serviceContextName = serviceContextName;
+	}
+}

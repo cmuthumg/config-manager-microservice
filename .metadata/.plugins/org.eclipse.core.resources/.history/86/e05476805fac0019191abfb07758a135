@@ -1,0 +1,5 @@
+package com.config.online.service.proxy;
+
+public class DBServiceProxy {
+
+}

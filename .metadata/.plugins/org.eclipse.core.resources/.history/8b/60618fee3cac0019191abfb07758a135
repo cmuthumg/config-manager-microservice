@@ -1,0 +1,31 @@
+package com.config.db.serivce.dbservices;
+
+import org.springframework.stereotype.Service;
+
+import com.config.db.serivce.model.Online;
+import com.config.db.serivce.registry.AdapterService;
+
+@Service("online")
+public class OnlineService implements AdapterService<Online> {
+
+	@Override
+	public Online getConfigData(String id, String status) {
+		return new Online(id, status);
+	}
+
+	@Override
+	public Online saveconfigData(Online data) {
+		return null;
+	}
+
+	@Override
+	public Online updateConfigData(Online data) {
+		return null;
+	}
+
+	@Override
+	public Online deleteConfigData(String id, String status) {
+		return null;
+	}
+
+}

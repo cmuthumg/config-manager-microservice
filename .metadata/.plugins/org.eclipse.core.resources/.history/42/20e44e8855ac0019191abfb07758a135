@@ -1,0 +1,13 @@
+package com.config.db.serivce.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.config.db.serivce.model.Online;
+
+@Repository
+public interface OnlineRepository extends CrudRepository<Online, Serializable> {
+
+}

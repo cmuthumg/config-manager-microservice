@@ -1,0 +1,31 @@
+package com.config.db.serivce.dbservices;
+
+import com.config.db.serivce.model.Offline;
+import com.config.db.serivce.registry.AdapterService;
+
+public class OfflineService implements AdapterService<Offline> {
+
+	@Override
+	public Offline getConfigData(String id, String status) {
+		return null;
+	}
+
+	@Override
+	public Offline saveconfigData(Offline data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Offline updateConfigData(Offline data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Offline deleteConfigData(String id, String status) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

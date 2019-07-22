@@ -1,0 +1,6 @@
+package com.config.db.serivce.model;
+
+public class OnlineRo {
+	private String serviceContextName;
+
+}

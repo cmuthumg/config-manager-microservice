@@ -1,0 +1,10 @@
+package com.config.db.serivce.bean;
+
+public class RequestBean {
+
+	private String serviceContextName;
+
+	private String status;
+
+	private String content;
+}

@@ -1,0 +1,9 @@
+package com.config.db.serivce.registry;
+
+public interface AdapterService<T> {
+	public T getConfigData(T data);
+	public T saveconfigData(T data);
+	public T updateConfigData(T data);
+	public T deleteConfigData(String resourceName);
+
+}
